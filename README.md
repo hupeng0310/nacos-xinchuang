@@ -14,8 +14,6 @@ db.password.0=nacos
 ```
 ### nacos构建
 ```shell
-# 将达梦数据库jdbc驱动添加到本地maven仓库
-mvn install:install-file -Dfile=.\DmJdbcDriver18.jar -DgroupId=com.dameng -DartifactId=Dm8JdbcDriver18 -Dversion=8.1.1.193 -Dpackaging=jar
 # 打包nacos 打包后的文件在/distribution/target/目录下
 mvn -Prelease-nacos -Dmaven.test.skip=true -Drat.skip=true clean install -U
 ```
@@ -28,4 +26,5 @@ sh startup.sh -m standalone
 ```
 ---
 ***注***<br/>
-本项目仅测试过nacos单机部署，集群部署是否可用无法保证
+1. maven无法获取达梦数据库连接驱动时，请尝试切换到阿里云maven镜像
+2. 本项目仅测试过nacos单机部署，集群部署是否可用无法保证
